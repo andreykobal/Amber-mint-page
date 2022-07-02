@@ -6,13 +6,22 @@
   "social": [
     {
       "href": "https://discord.com/invite/UY9Xf2k",
-      "img":  "discord.svg",
+      "img": "discord.svg",
       "alt": "Discord"
     },
     {
       "href": "https://twitter.com/TenkDAO",
-      "img":  "twitter.svg",
+      "img": "twitter.svg",
       "alt": "Twitter"
     }
-  ]
+  ],
+  "logo": "logo.svg",
+  "bookIcon": "book-icon.svg",
+  "cardIcon": "card-icon.svg",
+  "downIcon": "down-icon.svg",
+  "ideaIcon": "idea-icon.svg",
+  "userIcon": "user-icon.svg",
+  "manNft": "nft-man.svg",
+  "bgBlueCurve": "../../assets/images/bg-blue-curve.svg",
+  "bgGradientCurve": "../../assets/images/bg-gradient-curve.svg"
 }

@@ -1,12 +1,7 @@
 import React, { useState } from "react"
 import settings from "../../../config/settings.json"
 import useLocales from "../../hooks/useLocales"
-import logo from "../../assets/images/logo.svg"
-import bookIcon from "../../assets/images/book-icon.svg"
-import cardIcon from "../../assets/images/card-icon.svg"
-import downIcon from "../../assets/images/down-icon.svg"
-import ideaIcon from "../../assets/images/idea-icon.svg"
-import userIcon from "../../assets/images/user-icon.svg"
+import Image from "../image"
 
 export default function Navbar() {
   const { locale } = useLocales()
@@ -45,8 +40,8 @@ export default function Navbar() {
           >
             <li>
               <a href="#" className="text-black text-xs gap-[0.4rem]">
-                <img
-                  src={bookIcon}
+                <Image
+                  src={settings.bookIcon}
                   alt="whitepaper"
                   className="w-[16px] h-[16px]"
                 />
@@ -55,8 +50,8 @@ export default function Navbar() {
             </li>
             <li>
               <a href="#" className="text-black text-xs gap-[0.4rem]">
-                <img
-                  src={ideaIcon}
+                <Image
+                  src={settings.ideaIcon}
                   alt="Tokenomics"
                   className="w-[16px] h-[16px]"
                 />
@@ -65,8 +60,8 @@ export default function Navbar() {
             </li>
             <li>
               <a href="#" className="text-black text-xs gap-[0.4rem]">
-                <img
-                  src={cardIcon}
+                <Image
+                  src={settings.cardIcon}
                   alt="Marketplace"
                   className="w-[16px] h-[16px]"
                 />
@@ -75,8 +70,8 @@ export default function Navbar() {
             </li>
             <li>
               <a href="#" className="text-black text-xs gap-[0.4rem]">
-                <img
-                  src={downIcon}
+                <Image
+                  src={settings.downIcon}
                   alt="Contact Us"
                   className="w-[16px] h-[16px]"
                 />
@@ -85,7 +80,11 @@ export default function Navbar() {
             </li>
             <li>
               <a href="#" className="text-black text-xs gap-[0.4rem]">
-                <img src={userIcon} alt="user" className="w-[16px] h-[16px]" />
+                <Image
+                  src={settings.userIcon}
+                  alt="user"
+                  className="w-[16px] h-[16px]"
+                />
                 <span>{locale.profile}</span>
               </a>
             </li>
@@ -94,15 +93,15 @@ export default function Navbar() {
       </div>
       <div className="flex-1 ml-[1rem] sm:ml-[3rem] lg:ml-[12rem]">
         <a className="w-[80px]" href="#">
-          <img src={logo} alt="logo" />
+          <Image src={settings.logo} alt="logo" />
         </a>
       </div>
       <div className="hidden lg:block flex-none">
         <ul className="menu menu-horizontal p-0">
           <li>
             <a href="#" className="text-white text-xs gap-[0.4rem]">
-              <img
-                src={bookIcon}
+              <Image
+                src={settings.bookIcon}
                 alt="whitepaper"
                 className="w-[16px] h-[16px]"
               />
@@ -111,8 +110,8 @@ export default function Navbar() {
           </li>
           <li>
             <a href="#" className="text-white text-xs gap-[0.4rem]">
-              <img
-                src={ideaIcon}
+              <Image
+                src={settings.ideaIcon}
                 alt="Tokenomics"
                 className="w-[16px] h-[16px]"
               />
@@ -121,8 +120,8 @@ export default function Navbar() {
           </li>
           <li>
             <a href="#" className="text-white text-xs gap-[0.4rem]">
-              <img
-                src={cardIcon}
+              <Image
+                src={settings.cardIcon}
                 alt="Marketplace"
                 className="w-[16px] h-[16px]"
               />
@@ -131,8 +130,8 @@ export default function Navbar() {
           </li>
           <li>
             <a href="#" className="text-white text-xs gap-[0.4rem]">
-              <img
-                src={downIcon}
+              <Image
+                src={settings.downIcon}
                 alt="Contact Us"
                 className="w-[16px] h-[16px]"
               />
@@ -141,7 +140,11 @@ export default function Navbar() {
           </li>
           <li>
             <a href="#">
-              <img src={userIcon} alt="user" className="w-[16px] h-[16px]" />
+              <Image
+                src={settings.userIcon}
+                alt="user"
+                className="w-[16px] h-[16px]"
+              />
             </a>
           </li>
         </ul>

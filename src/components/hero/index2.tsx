@@ -1,8 +1,7 @@
 import React from "react"
 import manNft from "../../assets/images/nft-man.png"
-import cardIcon from "../../assets/images/card-blue-icon.svg"
-import bgBlueCurve from "../../assets/images/bg-blue-curve.svg"
-import bgGradientCurve from "../../assets/images/bg-gradient-curve.svg"
+import settings from "../../../config/settings.json"
+import Image from "../image"
 import { ExpandedHeroTree } from "../../../lib/locales"
 import useLocales from "../../hooks/useLocales"
 import useHeroStatuses from "../../hooks/useHeroStatuses"
@@ -10,15 +9,13 @@ import useHeroStatuses from "../../hooks/useHeroStatuses"
 const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
   const { locale } = useLocales()
   const { saleStatus, userStatus } = useHeroStatuses()
-  console.log(saleStatus, userStatus)
-  console.log("HUUUUUUU", heroTree[saleStatus][userStatus], locale)
   const hero = heroTree[saleStatus][userStatus]
 
   return (
     <div className="bg-background">
       <div
         style={{
-          backgroundImage: `url(${bgGradientCurve})`,
+          backgroundImage: `url(${settings.bgGradientCurve})`,
           backgroundSize: "contain",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "right",
@@ -26,7 +23,7 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
       >
         <div
           style={{
-            backgroundImage: `url(${bgBlueCurve})`,
+            backgroundImage: `url(${settings.bgBlueCurve})`,
             backgroundSize: "80% 100%",
             backgroundRepeat: "no-repeat",
           }}
@@ -50,7 +47,7 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
                 >
                   <div className="rounded-full p-[0.15rem] bg-white">
                     <div className="border-2 border-black rounded-full p-2 bg-[#E3E8FF]">
-                      <img src={cardIcon} alt="card" />
+                      <img src={settings.cardIcon} alt="card" />
                     </div>
                   </div>
                 </div>
@@ -60,8 +57,8 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
                 </div>
               </div>
             </div>
-            <img
-              src={manNft}
+            <Image
+              src={settings.manNft}
               alt="nft-demo"
               className="h-[80vh] hidden md:block"
             />
@@ -127,7 +124,11 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
 
         <div className="mt-12 pb-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center gap-2">
           <div className="rounded-3xl bg-[#06A4FF] w-[180px] h-[320px] flex justify-center items-center relative">
-            <img src={manNft} alt="nft-card" className="w-[100%] h-[100%]" />
+            <Image
+              src={settings.manNft}
+              alt="nft-card"
+              className="w-[100%] h-[100%]"
+            />
             <div className="flex items-center flex-col absolute bg-black/40 w-full bottom-0 rounded-b-3xl h-[48%] backdrop-blur-lg text-white">
               <h5 className="text-xl font-semibold mt-5">DJ Smokeout</h5>
               <p className="text-[0.86em] my-2">Rarity: 335.5</p>
@@ -156,7 +157,11 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
             </div>
           </div>
           <div className="rounded-3xl bg-accent w-[180px] h-[320px] flex justify-center items-center relative">
-            <img src={manNft} alt="nft-card" className="w-[100%] h-[100%]" />
+            <Image
+              src={settings.manNft}
+              alt="nft-card"
+              className="w-[100%] h-[100%]"
+            />
             <div className="flex items-center flex-col absolute bg-black/40 w-full bottom-0 rounded-b-3xl h-[48%] backdrop-blur-lg text-white">
               <h5 className="text-xl font-semibold mt-5">DJ Smokeout</h5>
               <p className="text-[0.86em] my-2">Rarity: 335.5</p>
@@ -191,7 +196,11 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
                 "linear-gradient(224deg, rgb(110, 204, 255) 0%, rgb(255, 211, 202) 70%, rgba(255, 188, 221, 0) 100%)",
             }}
           >
-            <img src={manNft} alt="nft-card" className="w-[100%] h-[100%]" />
+            <Image
+              src={settings.manNft}
+              alt="nft-card"
+              className="w-[100%] h-[100%]"
+            />
             <div className="flex items-center flex-col absolute bg-black/40 w-full bottom-0 rounded-b-3xl h-[48%] backdrop-blur-lg text-white">
               <h5 className="text-xl font-semibold mt-5">DJ Smokeout</h5>
               <p className="text-[0.86em] my-2">Rarity: 335.5</p>
@@ -220,7 +229,11 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
             </div>
           </div>
           <div className="rounded-3xl bg-[#06A4FF] w-[180px] h-[320px] flex justify-center items-center relative">
-            <img src={manNft} alt="nft-card" className="w-[100%] h-[100%]" />
+            <Image
+              src={settings.manNft}
+              alt="nft-card"
+              className="w-[100%] h-[100%]"
+            />
             <div className="flex items-center flex-col absolute bg-black/40 w-full bottom-0 rounded-b-3xl h-[48%] backdrop-blur-lg text-white">
               <h5 className="text-xl font-semibold mt-5">DJ Smokeout</h5>
               <p className="text-[0.86em] my-2">Rarity: 335.5</p>

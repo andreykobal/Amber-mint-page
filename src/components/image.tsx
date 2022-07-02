@@ -14,6 +14,7 @@ export type ImageProps = Omit<GatsbyImageProps, "image"> & {
  * GatsbyImage.
  */
 export default function ({ src, ...props }: ImageProps) {
+  console.log(src)
   const { svg, image } = useImageData(src)
 
   if (svg) {
@@ -29,12 +30,10 @@ export default function ({ src, ...props }: ImageProps) {
     )
   }
 
-  const imageData = image.childImageSharp?.gatsbyImageData
+  const imageData = image?.childImageSharp?.gatsbyImageData
 
   if (imageData) {
-    return (
-      <GatsbyImage image={imageData} objectFit="contain" {...props} />
-    )
+    return <GatsbyImage image={imageData} objectFit="contain" {...props} />
   }
 
   return (

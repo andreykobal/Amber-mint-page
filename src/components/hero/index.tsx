@@ -14,7 +14,6 @@ const currentUser = wallet.getAccountId()
 
 const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
   const { locale } = useLocales()
-  console.log(locale)
   const tenkData = useTenk()
   const { saleStatus, userStatus } = useHeroStatuses()
   const [numberToMint, setNumberToMint] = React.useState(1)

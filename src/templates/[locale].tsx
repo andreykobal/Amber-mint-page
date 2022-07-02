@@ -44,7 +44,6 @@ const Landing: React.FC<PageProps<{}, PageContext>> = ({
   location,
   pageContext: { locale },
 }) => {
-  console.log("This is here", { location, pageContext: { locale } })
   const tenkData = useTenk()
   const { image } = useImageData(settings.image)
 
@@ -60,7 +59,6 @@ const Landing: React.FC<PageProps<{}, PageContext>> = ({
     saleStatus,
     userStatus,
   }
-  console.log("locale data", data)
   useEffect(() => {
     if (!transactionHashes) return
     getTokenIDsForTxHash(transactionHashes).then(setTokensMinted)

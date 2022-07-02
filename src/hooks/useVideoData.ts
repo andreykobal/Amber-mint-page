@@ -48,7 +48,6 @@ export default function useImageData(src: string): VideoData {
   )
 
   const video = videos.find(v => v.relativePath === src)
-  console.log(videos)
   if (!video) {
     throw new Error(
       `No video "${src}" in PROJECT_ROOT/config/videos. Set "src" to one of the following:\n  • ${videos
