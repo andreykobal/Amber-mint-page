@@ -2,7 +2,9 @@ import { useStaticQuery, graphql } from "gatsby"
 import { useLocation } from "@reach/router"
 import type { AllLocalesQuery } from "../../graphql-types"
 
-type I18n = NonNullable<AllLocalesQuery["allFile"]["nodes"][number]["childI18NJson"]>
+type I18n = NonNullable<
+  AllLocalesQuery["allFile"]["nodes"][number]["childI18NJson"]
+>
 
 export type Locale = {
   id: string
@@ -22,7 +24,12 @@ export default function useLocales(): { locales: Locale[]; locale?: Locale } {
   const { allFile }: AllLocalesQuery = useStaticQuery(
     graphql`
       query AllLocales {
-        allFile(filter: { sourceInstanceName: { eq: "i18n" }, extension: {eq: "json"}}) {
+        allFile(
+          filter: {
+            sourceInstanceName: { eq: "i18n" }
+            extension: { eq: "json" }
+          }
+        ) {
           nodes {
             name
             childI18NJson {
@@ -30,6 +37,15 @@ export default function useLocales(): { locales: Locale[]; locale?: Locale } {
               langPicker
               title
               description
+              mint3DNFT
+              billedOnce
+              whitepaper
+              tokenomics
+              profile
+              marketplace
+              contactus
+              recentlyMinted
+              mintDescription
               calendarEvent
               connectWallet
               signOut
@@ -48,10 +64,13 @@ export default function useLocales(): { locales: Locale[]; locale?: Locale } {
   )
   const { pathname } = useLocation()
 
-  const locales = allFile.nodes.map(node => ({
-    id: node.name,
-    ...node.childI18NJson!,
-  }) as Locale) // type coercion removes the `| null` that GraphQL includes
+  const locales = allFile.nodes.map(
+    node =>
+      ({
+        id: node.name,
+        ...node.childI18NJson!,
+      } as Locale)
+  ) // type coercion removes the `| null` that GraphQL includes
 
   const locale = locales.find(l => new RegExp(`/${l.id}`).test(pathname))
 

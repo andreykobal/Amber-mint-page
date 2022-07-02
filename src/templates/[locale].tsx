@@ -4,8 +4,8 @@ import { PageProps, navigate } from "gatsby"
 import * as naj from "near-api-js"
 import { near, wallet } from "../near"
 
-import { fill } from '../../lib/locales/runtimeUtils'
-import Hero from "../components/hero"
+import { fill } from "../../lib/locales/runtimeUtils"
+import Hero from "../components/hero/index2"
 import MyNFTs from "../components/my-nfts"
 import Section from "../components/section"
 import Layout from "../components/layout"
@@ -15,7 +15,7 @@ import Image from "../components/image"
 import type { DecoratedLocale } from "../../lib/locales"
 import useTenk from "../hooks/useTenk"
 import useImageData from "../hooks/useImageData"
-import useHeroStatuses from '../hooks/useHeroStatuses'
+import useHeroStatuses from "../hooks/useHeroStatuses"
 import { Token } from "../near/contracts/tenk"
 
 type PageContext = {
@@ -23,10 +23,12 @@ type PageContext = {
 }
 
 function hasSuccessValue(obj: {}): obj is { SuccessValue: string } {
-  return 'SuccessValue' in obj
+  return "SuccessValue" in obj
 }
 
-async function getTokenIDsForTxHash(txHash: string): Promise<string[] | undefined> {
+async function getTokenIDsForTxHash(
+  txHash: string
+): Promise<string[] | undefined> {
   const rpc = new naj.providers.JsonRpcProvider(near.config.nodeUrl)
   const tx = await rpc.txStatus(txHash, wallet.getAccountId())
   if (!hasSuccessValue(tx.status)) return undefined
@@ -38,13 +40,16 @@ async function getTokenIDsForTxHash(txHash: string): Promise<string[] | undefine
 
 const currentUser = wallet.getAccountId()
 
-const Landing: React.FC<PageProps<{}, PageContext>> = ({ location, pageContext: { locale } }) => {
-
+const Landing: React.FC<PageProps<{}, PageContext>> = ({
+  location,
+  pageContext: { locale },
+}) => {
+  console.log("This is here", { location, pageContext: { locale } })
   const tenkData = useTenk()
   const { image } = useImageData(settings.image)
 
   const params = new URLSearchParams(location.search)
-  const transactionHashes = params.get('transactionHashes') ?? undefined
+  const transactionHashes = params.get("transactionHashes") ?? undefined
   const [tokensMinted, setTokensMinted] = useState<string[]>()
   const { saleStatus, userStatus } = useHeroStatuses()
 
@@ -55,7 +60,7 @@ const Landing: React.FC<PageProps<{}, PageContext>> = ({ location, pageContext: 
     saleStatus,
     userStatus,
   }
-  
+  console.log("locale data", data)
   useEffect(() => {
     if (!transactionHashes) return
     getTokenIDsForTxHash(transactionHashes).then(setTokensMinted)
@@ -63,7 +68,7 @@ const Landing: React.FC<PageProps<{}, PageContext>> = ({ location, pageContext: 
 
   return (
     <>
-      <Layout style={{ filter: transactionHashes && 'blur(4px)' }}>
+      <Layout style={{ filter: transactionHashes && "blur(4px)" }}>
         <Seo
           lang={locale.id}
           title={locale.title}
@@ -72,14 +77,14 @@ const Landing: React.FC<PageProps<{}, PageContext>> = ({ location, pageContext: 
           image={image?.publicURL ?? undefined}
         />
         <Hero heroTree={locale.hero} />
-        {locale.extraSections?.map((section, i) => (
+        {/* {locale.extraSections?.map((section, i) => (
           <Section key={i} {...section}>
             <Markdown children={fill(section.text, data)} />
             {section.blocks && (
               <div className="grid">
                 {section.blocks.map(({ linkTo, text, image }, j) => {
-                  const El = linkTo ? 'a' : 'div'
-                  const props = linkTo && { href: linkTo, target: '_blank' }
+                  const El = linkTo ? "a" : "div"
+                  const props = linkTo && { href: linkTo, target: "_blank" }
                   return (
                     <El key={j} {...props}>
                       {image && (
@@ -98,7 +103,7 @@ const Landing: React.FC<PageProps<{}, PageContext>> = ({ location, pageContext: 
               </div>
             )}
           </Section>
-        ))}
+        ))} */}
       </Layout>
       {transactionHashes && (
         <MyNFTs

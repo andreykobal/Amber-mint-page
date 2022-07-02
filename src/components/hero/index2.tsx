@@ -1,10 +1,19 @@
 import React from "react"
-import manNft from "../assets/images/nft-man.png"
-import cardIcon from "../assets/images/card-blue-icon.svg"
-import bgBlueCurve from "../assets/images/bg-blue-curve.svg"
-import bgGradientCurve from "../assets/images/bg-gradient-curve.svg"
+import manNft from "../../assets/images/nft-man.png"
+import cardIcon from "../../assets/images/card-blue-icon.svg"
+import bgBlueCurve from "../../assets/images/bg-blue-curve.svg"
+import bgGradientCurve from "../../assets/images/bg-gradient-curve.svg"
+import { ExpandedHeroTree } from "../../../lib/locales"
+import useLocales from "../../hooks/useLocales"
+import useHeroStatuses from "../../hooks/useHeroStatuses"
 
-function Home() {
+const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
+  const { locale } = useLocales()
+  const { saleStatus, userStatus } = useHeroStatuses()
+  console.log(saleStatus, userStatus)
+  console.log("HUUUUUUU", heroTree[saleStatus][userStatus], locale)
+  const hero = heroTree[saleStatus][userStatus]
+
   return (
     <div className="bg-background">
       <div
@@ -29,13 +38,8 @@ function Home() {
             }}
           >
             <div className="space-y-8 lg:w-[58%] xl:w-[38%]">
-              <h1 className="text-3xl font-bold text-white">
-                Get your 3D NFT avatar for life in the Metaverse
-              </h1>
-              <p className="text-sm text-white">
-                Don&#39;t skip design. Learn design and code, by building real
-                apps, collaborate and solving product UI problems.
-              </p>
+              <h1 className="text-3xl font-bold text-white">{locale?.title}</h1>
+              <p className="text-sm text-white">{locale?.description}</p>
               <div className="bg-white rounded-3xl p-4 w-max flex justify-between items-center space-x-4 mx-auto md:mx-0">
                 <div
                   className="rounded-full p-[0.15rem]"
@@ -51,8 +55,8 @@ function Home() {
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-sm font-semibold">MINT 3D NFT AVATAR</h4>
-                  <p className="text-sm">N8, billed once</p>
+                  <h4 className="text-sm font-semibold">{locale?.mint3DNFT}</h4>
+                  <p className="text-sm">{locale?.billedOnce}</p>
                 </div>
               </div>
             </div>
@@ -68,7 +72,7 @@ function Home() {
       <div className="w-[40%] md:w-[55%] mx-auto xl:w-[60%]">
         <div className="pt-12 flex justify-between text-center lg:text-start">
           <div className="w-[100%] lg:w-[50%] space-y-4">
-            <h1 className="text-3xl font-bold">Recently minted</h1>
+            <h1 className="text-3xl font-bold">{locale?.recentlyMinted}</h1>
             <div className="flex items-center justify-center lg:justify-start space-x-8">
               <button
                 className="btn btn-sm bg-white btn-outline capitalize rounded-2xl text-xs gap-1 font-bold"
@@ -90,7 +94,7 @@ function Home() {
                     d="M11 17l-5-5m0 0l5-5m-5 5h12"
                   />
                 </svg>
-                Prev
+                {locale?.prevNFT}
               </button>
               <button
                 className="btn btn-sm bg-white btn-outline capitalize rounded-2xl text-xs gap-1 font-bold"
@@ -98,7 +102,7 @@ function Home() {
                   border: "1px solid rgba(57, 19, 184, 0.2)",
                 }}
               >
-                Next
+                {locale?.nextNFT}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4"
@@ -117,10 +121,7 @@ function Home() {
             </div>
           </div>
           <div className="w-[50%] hidden lg:block">
-            <p className="text-sm font-semibold">
-              We focus on industry leading platforms so that you can be prepared
-              for your next job. Then we teach all we can about them.
-            </p>
+            <p className="text-sm font-semibold">{locale.mintDescription}</p>
           </div>
         </div>
 
@@ -253,4 +254,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Hero
