@@ -79,6 +79,7 @@ export interface Locale {
   langPicker: string
   mint3DNFT: string
   billedOnce: string
+  siteTitle: string
   recentlyMinted: string
   mintDescription: string
   title: string

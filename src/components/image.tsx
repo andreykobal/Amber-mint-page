@@ -14,17 +14,20 @@ export type ImageProps = Omit<GatsbyImageProps, "image"> & {
  * GatsbyImage.
  */
 export default function ({ src, ...props }: ImageProps) {
-  console.log(src)
   const { svg, image } = useImageData(src)
-
   if (svg) {
     if (svg.svg?.content) {
       // Inlined SVGs
-      return <div dangerouslySetInnerHTML={{ __html: svg.svg.content }} />
+      return (
+        <div
+          dangerouslySetInnerHTML={{ __html: svg.svg.content }}
+          className={props.className}
+        />
+      )
     }
     // SVGs that can/should not be inlined
     return (
-      <div className="image">
+      <div className={props.className}>
         <img src={svg.svg?.dataURI ?? undefined} alt={props.alt} />
       </div>
     )
@@ -37,7 +40,7 @@ export default function ({ src, ...props }: ImageProps) {
   }
 
   return (
-    <div className="image">
+    <div className={props.className}>
       <img src={image.publicURL ?? undefined} {...props} />
     </div>
   )

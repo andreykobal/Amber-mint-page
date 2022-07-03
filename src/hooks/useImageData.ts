@@ -1,13 +1,15 @@
 import { useStaticQuery, graphql } from "gatsby"
 import type { AllImagesQuery } from "../../graphql-types"
 
-type SvgOrImage = {
-  svg: AllImagesQuery['svg']['nodes'][number]
-  image: undefined
-} | {
-  svg: undefined
-  image: AllImagesQuery['nonSvg']['nodes'][number]
-}
+type SvgOrImage =
+  | {
+      svg: AllImagesQuery["svg"]["nodes"][number]
+      image: undefined
+    }
+  | {
+      svg: undefined
+      image: AllImagesQuery["nonSvg"]["nodes"][number]
+    }
 
 /**
  * Get image data for use with an inline/data-URL SVG or with GatsbyImage.
@@ -22,7 +24,12 @@ export default function useImageData(src: string): SvgOrImage {
   }: AllImagesQuery = useStaticQuery(
     graphql`
       query AllImages {
-        svg: allFile(filter: { sourceInstanceName: { eq: "images" }, extension: { eq: "svg" } }) {
+        svg: allFile(
+          filter: {
+            sourceInstanceName: { eq: "images" }
+            extension: { eq: "svg" }
+          }
+        ) {
           nodes {
             relativePath
             svg {
@@ -31,7 +38,12 @@ export default function useImageData(src: string): SvgOrImage {
             }
           }
         }
-        nonSvg: allFile(filter: { sourceInstanceName: { eq: "images" }, extension: { ne: "svg" } }) {
+        nonSvg: allFile(
+          filter: {
+            sourceInstanceName: { eq: "images" }
+            extension: { ne: "svg" }
+          }
+        ) {
           nodes {
             relativePath
             publicURL
@@ -46,7 +58,6 @@ export default function useImageData(src: string): SvgOrImage {
 
   const svg = svgs.find(s => s.relativePath === src)
   const image = images.find(i => i.relativePath === src)
-
   if (!svg && !image) {
     console.error(
       new Error(

@@ -23,7 +23,7 @@ type MetaTag =
 interface Props {
   description: string
   lang: string
-  title: string
+  siteTitle: string
   meta?: MetaTag[]
   favicon?: string
   image?: string
@@ -33,7 +33,7 @@ function Seo({
   description,
   lang,
   meta = [],
-  title,
+  siteTitle,
   favicon,
   image,
 }: Props) {
@@ -49,16 +49,16 @@ function Seo({
       }
     `
   )
-
+  console.log("dsfffffffffffff", siteTitle)
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={title}
+      title={siteTitle}
       link={
         favicon
-          ? [{ href: favicon, rel: 'icon', type: 'image/png' }]
+          ? [{ href: favicon, rel: "icon", type: "image/png" }]
           : undefined
       }
       meta={[
@@ -68,7 +68,7 @@ function Seo({
         },
         {
           property: `og:title`,
-          content: title,
+          content: siteTitle,
         },
         {
           property: `og:url`,
@@ -80,7 +80,7 @@ function Seo({
         },
         {
           property: `og:image`,
-          content: !image ? '' : new URL(image, settings.siteUrl).href,
+          content: !image ? "" : new URL(image, settings.siteUrl).href,
         },
         {
           property: `og:type`,
@@ -96,7 +96,7 @@ function Seo({
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: siteTitle,
         },
         {
           name: `twitter:description`,
@@ -104,8 +104,8 @@ function Seo({
         },
         {
           name: `twitter:image`,
-          content: !image ? '' : new URL(image, settings.siteUrl).href,
-        }
+          content: !image ? "" : new URL(image, settings.siteUrl).href,
+        },
       ].concat(meta)}
     />
   )

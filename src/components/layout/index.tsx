@@ -1,16 +1,16 @@
 import * as React from "react"
-import "./layout.scss"
+// import "./layout.scss"
 import Banner from "../banner"
-import Navbar from "../nav/index"
+import Navbar from "../nav"
 import Footer from "../footer"
-import * as css from "./layout.module.css"
+// import * as css from "./layout.module.css"
 
 const Layout: React.FC<{ style?: React.CSSProperties }> = ({
   style,
   children,
 }) => {
   return (
-    <div style={style} className={css.wrap}>
+    <div>
       <div>
         <Banner />
         <Navbar />

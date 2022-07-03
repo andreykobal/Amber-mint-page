@@ -105,7 +105,7 @@ export default function Navbar() {
                 alt="whitepaper"
                 className="w-[16px] h-[16px]"
               />
-              <span>{locale.profile}</span>
+              <span>{locale.whitepaper}</span>
             </a>
           </li>
           <li>

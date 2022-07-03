@@ -5,9 +5,7 @@ import * as naj from "near-api-js"
 import { near, wallet } from "../near"
 
 import { fill } from "../../lib/locales/runtimeUtils"
-import Hero from "../components/hero/index2"
-import MyNFTs from "../components/my-nfts"
-import Section from "../components/section"
+import Hero from "../components/hero"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Markdown from "../components/markdown"
@@ -69,7 +67,7 @@ const Landing: React.FC<PageProps<{}, PageContext>> = ({
       <Layout style={{ filter: transactionHashes && "blur(4px)" }}>
         <Seo
           lang={locale.id}
-          title={locale.title}
+          siteTitle={locale.siteTitle}
           description={locale.description}
           favicon={tenkData.contractMetadata?.icon}
           image={image?.publicURL ?? undefined}
@@ -103,12 +101,12 @@ const Landing: React.FC<PageProps<{}, PageContext>> = ({
           </Section>
         ))} */}
       </Layout>
-      {transactionHashes && (
+      {/* {transactionHashes && (
         <MyNFTs
           onClose={() => navigate(`/${locale.id}`)}
           highlight={tokensMinted}
         />
-      )}
+      )} */}
     </>
   )
 }

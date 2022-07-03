@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
-import useHeroStatuses from '../../hooks/useHeroStatuses'
-import * as css from './banner.module.css'
+import useHeroStatuses from "../../hooks/useHeroStatuses"
+import * as css from "./banner.module.css"
 
 export default function () {
   const { saleStatus, userStatus, heroParam, overrides } = useHeroStatuses()
@@ -21,14 +21,21 @@ export default function () {
         </Link>
       )}
       <div>
-        Hero override:{' '}
-        <code>saleStatus=<strong>{saleStatus}</strong></code> &amp;{' '}
-        <code>userStatus=<strong>{userStatus}</strong></code>
+        Hero override:{" "}
+        <code>
+          saleStatus=<strong>{saleStatus}</strong>
+        </code>{" "}
+        &amp;{" "}
+        <code>
+          userStatus=<strong>{userStatus}</strong>
+        </code>
       </div>
       {nextOverride && (
         <Link
           to={`./?hero=${heroParam + 1}`}
-          title={`saleStatus=${overrides[heroParam + 1].saleStatus} & userStatus=${overrides[heroParam + 1].userStatus}`}
+          title={`saleStatus=${
+            overrides[heroParam + 1].saleStatus
+          } & userStatus=${overrides[heroParam + 1].userStatus}`}
         >
           <span className="visuallyHidden">Next Hero State</span>
         </Link>

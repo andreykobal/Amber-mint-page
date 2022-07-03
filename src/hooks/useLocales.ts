@@ -35,6 +35,7 @@ export default function useLocales(): { locales: Locale[]; locale?: Locale } {
             childI18NJson {
               viewIn
               langPicker
+              siteTitle
               title
               description
               mint3DNFT

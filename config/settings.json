@@ -21,7 +21,7 @@
   "downIcon": "down-icon.svg",
   "ideaIcon": "idea-icon.svg",
   "userIcon": "user-icon.svg",
-  "manNft": "nft-man.svg",
-  "bgBlueCurve": "../../assets/images/bg-blue-curve.svg",
-  "bgGradientCurve": "../../assets/images/bg-gradient-curve.svg"
+  "manNft": "nft-man.png",
+  "bgBlueCurve": "bg-blue-curve.svg",
+  "bgGradientCurve": "bg-gradient-curve.svg"
 }
