@@ -5,6 +5,7 @@ import * as css from "./banner.module.css"
 
 export default function () {
   const { saleStatus, userStatus, heroParam, overrides } = useHeroStatuses()
+
   if (heroParam === undefined) return null
 
   const prevOverride = overrides[heroParam - 1]
