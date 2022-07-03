@@ -9,9 +9,7 @@ import bgGradientCurve from "../../../config/images/bg-gradient-curve.svg"
 
 const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
   const { locale } = useLocales()
-
   const { saleStatus, userStatus } = useHeroStatuses()
-  const hero = heroTree[saleStatus][userStatus]
 
   return (
     <div className="bg-background">
