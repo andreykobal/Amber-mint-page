@@ -2,7 +2,6 @@ import * as React from "react"
 // import "./layout.scss"
 import Banner from "../banner"
 import Navbar from "../nav"
-import Footer from "../footer"
 // import * as css from "./layout.module.css"
 
 const Layout: React.FC<{ style?: React.CSSProperties }> = ({

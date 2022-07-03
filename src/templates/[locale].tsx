@@ -57,6 +57,7 @@ const Landing: React.FC<PageProps<{}, PageContext>> = ({
     saleStatus,
     userStatus,
   }
+
   useEffect(() => {
     if (!transactionHashes) return
     getTokenIDsForTxHash(transactionHashes).then(setTokensMinted)
@@ -67,7 +68,7 @@ const Landing: React.FC<PageProps<{}, PageContext>> = ({
       <Layout style={{ filter: transactionHashes && "blur(4px)" }}>
         <Seo
           lang={locale.id}
-          siteTitle={locale.siteTitle}
+          siteTitle={settings.siteTitle}
           description={locale.description}
           favicon={tenkData.contractMetadata?.icon}
           image={image?.publicURL ?? undefined}

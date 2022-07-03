@@ -74,6 +74,5 @@ export default function useLocales(): { locales: Locale[]; locale?: Locale } {
   ) // type coercion removes the `| null` that GraphQL includes
 
   const locale = locales.find(l => new RegExp(`/${l.id}`).test(pathname))
-
   return { locales, locale }
 }

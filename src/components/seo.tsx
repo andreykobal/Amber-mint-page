@@ -49,7 +49,6 @@ function Seo({
       }
     `
   )
-  console.log("dsfffffffffffff", siteTitle)
   return (
     <Helmet
       htmlAttributes={{
