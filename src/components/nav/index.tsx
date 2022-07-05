@@ -1,11 +1,17 @@
 import React, { useState } from "react"
 import settings from "../../../config/settings.json"
+import { signIn, wallet } from "../../near"
 import useLocales from "../../hooks/useLocales"
 import Image from "../image"
 
+function signOut() {
+  wallet.signOut()
+  window.location.replace(window.location.origin + window.location.pathname)
+}
+
 export default function Navbar() {
   const { locale } = useLocales()
-
+  const currentUser = wallet.getAccountId()
   if (!locale) return null
 
   return (
@@ -138,15 +144,22 @@ export default function Navbar() {
               <span>{locale.contactus}</span>
             </a>
           </li>
-          <li>
-            <a href="#">
+          <a href="#">
+            {!currentUser ? (
+              <button
+                type="button"
+                className="text-white bg-gradient-to-r from-sky-600 via-sky-500 to-sky-400 hover:bg-gradient-to-br focus:ring-4 focus:ring-sky-300 dark:focus:ring-sky-800 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 transition duration-300"
+              >
+                {locale.connectWallet}
+              </button>
+            ) : (
               <Image
                 src={settings.userIcon}
                 alt="user"
                 className="w-[16px] h-[16px]"
               />
-            </a>
-          </li>
+            )}
+          </a>
         </ul>
       </div>
     </nav>
