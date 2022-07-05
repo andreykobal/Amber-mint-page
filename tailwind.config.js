@@ -28,4 +28,7 @@ module.exports = {
       },
     ],
   },
+  variants: {
+    linearGradients: ["hover", "responsive"],
+  },
 }

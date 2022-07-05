@@ -12,7 +12,7 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
   const { saleStatus, userStatus } = useHeroStatuses()
 
   return (
-    <div className="bg-background">
+    <div className="bg-slate-100 pb-40">
       <div
         style={{
           backgroundImage: `url(${bgGradientCurve})`,
