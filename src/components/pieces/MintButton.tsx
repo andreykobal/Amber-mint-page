@@ -34,6 +34,7 @@ const ButtonContainer = styled.button`
   background-image: linear-gradient(to bottom, #ffbcdd, #ffd4cb);
   box-shadow: 0 7px 20px 0px #ffbcdd, 2px 1000px 1px #fff inset;
   background-origin: border-box;
+
   &:hover {
     background-image: linear-gradient(to bottom, #f389bd, #fdc3b7);
   }

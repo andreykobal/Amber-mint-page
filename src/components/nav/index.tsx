@@ -4,7 +4,7 @@ import { signIn, wallet } from "../../near"
 import LoginButton from "../pieces/LoginButton"
 import useLocales from "../../hooks/useLocales"
 import Image from "../image"
-
+import { Ul, Li } from "../pieces/List"
 function signOut() {
   wallet.signOut()
   window.location.replace(window.location.origin + window.location.pathname)
@@ -16,20 +16,14 @@ export default function Navbar() {
   if (!locale) return null
 
   return (
-    <nav
-      className="navbar py-8 px-10 text-white absolute z-10"
-      style={{
-        background:
-          "linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(217,217,217,0) 100%)",
-      }}
-    >
+    <nav className="navbar py-8 px-10 text-white absolute z-10">
       <div className="lg:hidden flex-none">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
               fill="none"
+              className="h-5 w-5"
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
@@ -47,44 +41,14 @@ export default function Navbar() {
           >
             <li>
               <a href="#" className="text-black text-xs gap-[0.4rem]">
-                {/* <Image
-                  src={settings.bookIcon}
-                  alt="whitepaper"
-                  className="w-[16px] h-[16px]"
-                /> */}
                 <span>{locale.whitepaper}</span>
               </a>
             </li>
             <li>
               <a href="#" className="text-black text-xs gap-[0.4rem]">
-                {/* <Image
-                  src={settings.ideaIcon}
-                  alt="Tokenomics"
-                  className="w-[16px] h-[16px]"
-                /> */}
                 <span>{locale.tokenomics}</span>
               </a>
             </li>
-            {/* <li>
-              <a href="#" className="text-black text-xs gap-[0.4rem]">
-                <Image
-                  src={settings.cardIcon}
-                  alt="Marketplace"
-                  className="w-[16px] h-[16px]"
-                />
-                <span>{locale.marketplace}</span>
-              </a>
-            </li> */}
-            {/* <li>
-              <a href="#" className="text-black text-xs gap-[0.4rem]">
-                <Image
-                  src={settings.downIcon}
-                  alt="Contact Us"
-                  className="w-[16px] h-[16px]"
-                />
-                <span>{locale.contactus}</span>
-              </a>
-            </li> */}
             <li>
               <a href="#" className="text-black text-xs gap-[0.4rem]">
                 {!currentUser ? (
@@ -96,69 +60,40 @@ export default function Navbar() {
                     className="w-[16px] h-[16px]"
                   />
                 )}
-                <span>{locale.profile}</span>
               </a>
             </li>
           </ul>
         </div>
       </div>
       <div className="flex-1 ml-[1rem] sm:ml-[3rem] lg:ml-[12rem]">
-        <a className="w-[80px]" href="#">
+        <a className="w-[153px]" href="#">
           <Image src={settings.logo} alt="logo" />
         </a>
       </div>
       <div className="hidden lg:block flex-none">
-        <ul className="menu menu-horizontal p-0">
-          <li>
-            <a href="#" className="text-white text-xs gap-[0.4rem]">
-              {/* <Image
-                src={settings.bookIcon}
-                alt="whitepaper"
-                className="w-[16px] h-[16px]"
-              /> */}
+        <Ul className="flex p-0">
+          <Li>
+            <a href="#">
               <span>{locale.whitepaper}</span>
             </a>
-          </li>
-          <li>
-            <a href="#" className="text-white text-xs gap-[0.4rem]">
-              {/* <Image
-                src={settings.ideaIcon}
-                alt="Tokenomics"
-                className="w-[16px] h-[16px]"
-              /> */}
+          </Li>
+          <Li>
+            <a href="#">
               <span>{locale.tokenomics}</span>
             </a>
-          </li>
-          {/* <li>
-            <a href="#" className="text-white text-xs gap-[0.4rem]">
+          </Li>
+          <Li>
+            {!currentUser ? (
+              <LoginButton>{locale.connectWallet}</LoginButton>
+            ) : (
               <Image
-                src={settings.cardIcon}
-                alt="Marketplace"
+                src={settings.userIcon}
+                alt="user"
                 className="w-[16px] h-[16px]"
               />
-              <span>{locale.marketplace}</span>
-            </a>
-          </li> */}
-          {/* <li>
-            <a href="#" className="text-white text-xs gap-[0.4rem]">
-              <Image
-                src={settings.downIcon}
-                alt="Contact Us"
-                className="w-[16px] h-[16px]"
-              />
-              <span>{locale.contactus}</span>
-            </a>
-          </li> */}
-          {!currentUser ? (
-            <LoginButton>{locale.connectWallet}</LoginButton>
-          ) : (
-            <Image
-              src={settings.userIcon}
-              alt="user"
-              className="w-[16px] h-[16px]"
-            />
-          )}
-        </ul>
+            )}
+          </Li>
+        </Ul>
       </div>
     </nav>
   )

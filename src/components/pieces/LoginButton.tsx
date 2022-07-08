@@ -3,10 +3,7 @@ import styled from "styled-components"
 
 const LoginButton: React.FC<{}> = ({ children }) => {
   return (
-    <StyledButton
-      type="button"
-      className="font-medium rounded-full text-sm text-center mr-2 mb-2 transition duration-300"
-    >
+    <StyledButton type="button" className="rounded-full text-center">
       {children}
     </StyledButton>
   )
@@ -20,8 +17,12 @@ const StyledButton = styled.button`
     #2ab4ff,
     #6fccff
   ) !important;
+  font-size: 16px;
+  font-weight: 400 !important;
+  letter-spacing: 0.6px;
   color: white;
-  padding: 0 2rem !important;
+  margin: 0;
+  padding: 7px 2.75rem !important;
   &:hover {
     background-image: linear-gradient(
       to bottom right,
