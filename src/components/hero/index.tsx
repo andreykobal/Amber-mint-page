@@ -17,7 +17,7 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
       <div
         style={{
           backgroundImage: `url(${bgGradientCurve})`,
-          backgroundSize: "contain",
+          backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "right",
         }}
@@ -25,7 +25,7 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
         <div
           style={{
             backgroundImage: `url(${bgBlueCurve})`,
-            backgroundSize: "80% 100%",
+            backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
           }}
         >
@@ -35,15 +35,19 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
               backgroundColor: "rgba(217, 217, 217, 0.01)",
             }}
           >
-            <div className="space-y-8 lg:w-[58%] xl:w-[38%]">
-              <h1 className="text-3xl font-bold text-white">{locale?.title}</h1>
-              <p className="text-sm text-white">{locale?.description}</p>
+            <div className="space-y-8 lg:w-[60%] xl:w-[76%] mt-20">
+              <h1 className="text-[54px] leading-tight font-semibold text-white scale-y-105">
+                {locale?.title}
+              </h1>
+              <p className="text-2xl text-white leading-tight">
+                {locale?.description}
+              </p>
               <MintButton />
             </div>
             <Image
               src={settings.manNft}
               alt="nft-demo"
-              className="h-[80vh] hidden md:block"
+              className="h-[80vh] hidden md:block mt-20"
             />
           </div>
         </div>

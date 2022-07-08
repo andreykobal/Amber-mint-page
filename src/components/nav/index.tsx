@@ -16,7 +16,13 @@ export default function Navbar() {
   if (!locale) return null
 
   return (
-    <nav className="navbar py-8 px-10 text-white absolute z-10">
+    <nav
+      className="navbar py-8 px-10 pt-16 text-white absolute z-10"
+      style={{
+        background:
+          "linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(217,217,217,0) 60%)",
+      }}
+    >
       <div className="lg:hidden flex-none">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -41,36 +47,43 @@ export default function Navbar() {
           >
             <li>
               <a href="#" className="text-black text-xs gap-[0.4rem]">
+                <Image
+                  src={settings.bookIcon}
+                  alt="whitepaper"
+                  className="w-[16px] h-[16px]"
+                />
                 <span>{locale.whitepaper}</span>
               </a>
             </li>
             <li>
               <a href="#" className="text-black text-xs gap-[0.4rem]">
+                <Image
+                  src={settings.ideaIcon}
+                  alt="Tokenomics"
+                  className="w-[16px] h-[16px]"
+                />
                 <span>{locale.tokenomics}</span>
               </a>
             </li>
             <li>
               <a href="#" className="text-black text-xs gap-[0.4rem]">
-                {!currentUser ? (
-                  <LoginButton>{locale.connectWallet}</LoginButton>
-                ) : (
-                  <Image
-                    src={settings.userIcon}
-                    alt="user"
-                    className="w-[16px] h-[16px]"
-                  />
-                )}
+                <Image
+                  src={settings.userIcon}
+                  alt="user"
+                  className="w-[16px] h-[16px]"
+                />
+                <span>{locale.profile}</span>
               </a>
             </li>
           </ul>
         </div>
       </div>
-      <div className="flex-1 ml-[1rem] sm:ml-[3rem] lg:ml-[12rem]">
-        <a className="w-[153px]" href="#">
+      <div className="flex-1 top-7 ml-[1rem] sm:ml-[3rem] lg:ml-[5.5rem] mt">
+        <a className="w-[154px]" href="#">
           <Image src={settings.logo} alt="logo" />
         </a>
       </div>
-      <div className="hidden lg:block flex-none">
+      <div className="hidden lg:block top-7 flex-none">
         <Ul className="flex p-0">
           <Li>
             <a href="#">
