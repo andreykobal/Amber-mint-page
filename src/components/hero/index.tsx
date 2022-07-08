@@ -6,6 +6,7 @@ import useLocales from "../../hooks/useLocales"
 import useHeroStatuses from "../../hooks/useHeroStatuses"
 import bgBlueCurve from "../../../config/images/bg-blue-curve.svg"
 import bgGradientCurve from "../../../config/images/bg-gradient-curve.svg"
+import MintButton from "../pieces/MintButton"
 
 const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
   const { locale } = useLocales()
@@ -37,25 +38,7 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
             <div className="space-y-8 lg:w-[58%] xl:w-[38%]">
               <h1 className="text-3xl font-bold text-white">{locale?.title}</h1>
               <p className="text-sm text-white">{locale?.description}</p>
-              <div className="bg-white active:bg-slate-200 hover:bg-slate-100 | cursor-pointer rounded-3xl p-4 w-max flex justify-between items-center space-x-4 mx-auto md:mx-0">
-                <div
-                  className="rounded-full p-[0.15rem]"
-                  style={{
-                    background:
-                      "linear-gradient(42deg, rgb(255, 188, 221) 0%, rgb(255, 211, 202) 50%, rgb(6, 164, 255) 100%)",
-                  }}
-                >
-                  <div className="rounded-full p-[0.15rem] bg-white">
-                    <div className="border-2 border-black rounded-full p-2 bg-[#E3E8FF]">
-                      <Image src={settings.cardIcon} alt="card" />
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <h4 className="text-sm font-semibold">{locale?.mint3DNFT}</h4>
-                  <p className="text-sm">{locale?.billedOnce}</p>
-                </div>
-              </div>
+              <MintButton />
             </div>
             <Image
               src={settings.manNft}

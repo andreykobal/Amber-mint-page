@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import settings from "../../../config/settings.json"
 import { signIn, wallet } from "../../near"
+import LoginButton from "../pieces/LoginButton"
 import useLocales from "../../hooks/useLocales"
 import Image from "../image"
 
@@ -46,25 +47,25 @@ export default function Navbar() {
           >
             <li>
               <a href="#" className="text-black text-xs gap-[0.4rem]">
-                <Image
+                {/* <Image
                   src={settings.bookIcon}
                   alt="whitepaper"
                   className="w-[16px] h-[16px]"
-                />
+                /> */}
                 <span>{locale.whitepaper}</span>
               </a>
             </li>
             <li>
               <a href="#" className="text-black text-xs gap-[0.4rem]">
-                <Image
+                {/* <Image
                   src={settings.ideaIcon}
                   alt="Tokenomics"
                   className="w-[16px] h-[16px]"
-                />
+                /> */}
                 <span>{locale.tokenomics}</span>
               </a>
             </li>
-            <li>
+            {/* <li>
               <a href="#" className="text-black text-xs gap-[0.4rem]">
                 <Image
                   src={settings.cardIcon}
@@ -73,8 +74,8 @@ export default function Navbar() {
                 />
                 <span>{locale.marketplace}</span>
               </a>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <a href="#" className="text-black text-xs gap-[0.4rem]">
                 <Image
                   src={settings.downIcon}
@@ -83,14 +84,18 @@ export default function Navbar() {
                 />
                 <span>{locale.contactus}</span>
               </a>
-            </li>
+            </li> */}
             <li>
               <a href="#" className="text-black text-xs gap-[0.4rem]">
-                <Image
-                  src={settings.userIcon}
-                  alt="user"
-                  className="w-[16px] h-[16px]"
-                />
+                {!currentUser ? (
+                  <LoginButton>{locale.connectWallet}</LoginButton>
+                ) : (
+                  <Image
+                    src={settings.userIcon}
+                    alt="user"
+                    className="w-[16px] h-[16px]"
+                  />
+                )}
                 <span>{locale.profile}</span>
               </a>
             </li>
@@ -106,25 +111,25 @@ export default function Navbar() {
         <ul className="menu menu-horizontal p-0">
           <li>
             <a href="#" className="text-white text-xs gap-[0.4rem]">
-              <Image
+              {/* <Image
                 src={settings.bookIcon}
                 alt="whitepaper"
                 className="w-[16px] h-[16px]"
-              />
+              /> */}
               <span>{locale.whitepaper}</span>
             </a>
           </li>
           <li>
             <a href="#" className="text-white text-xs gap-[0.4rem]">
-              <Image
+              {/* <Image
                 src={settings.ideaIcon}
                 alt="Tokenomics"
                 className="w-[16px] h-[16px]"
-              />
+              /> */}
               <span>{locale.tokenomics}</span>
             </a>
           </li>
-          <li>
+          {/* <li>
             <a href="#" className="text-white text-xs gap-[0.4rem]">
               <Image
                 src={settings.cardIcon}
@@ -133,8 +138,8 @@ export default function Navbar() {
               />
               <span>{locale.marketplace}</span>
             </a>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <a href="#" className="text-white text-xs gap-[0.4rem]">
               <Image
                 src={settings.downIcon}
@@ -143,23 +148,16 @@ export default function Navbar() {
               />
               <span>{locale.contactus}</span>
             </a>
-          </li>
-          <a href="#">
-            {!currentUser ? (
-              <button
-                type="button"
-                className="text-white bg-gradient-to-r from-sky-600 via-sky-500 to-sky-400 hover:bg-gradient-to-br focus:ring-4 focus:ring-sky-300 dark:focus:ring-sky-800 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 transition duration-300"
-              >
-                {locale.connectWallet}
-              </button>
-            ) : (
-              <Image
-                src={settings.userIcon}
-                alt="user"
-                className="w-[16px] h-[16px]"
-              />
-            )}
-          </a>
+          </li> */}
+          {!currentUser ? (
+            <LoginButton>{locale.connectWallet}</LoginButton>
+          ) : (
+            <Image
+              src={settings.userIcon}
+              alt="user"
+              className="w-[16px] h-[16px]"
+            />
+          )}
         </ul>
       </div>
     </nav>

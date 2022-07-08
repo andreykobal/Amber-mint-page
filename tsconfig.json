@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "src/",
+    "baseUrl": ".",
     "target": "ES2019",
     "module": "commonjs",
     "lib": ["es2020", "ESNext", "DOM"],
@@ -20,6 +20,6 @@
     "strictNullChecks": true /* Enable strict null checks. */,
     "noImplicitThis": true /* Raise error on 'this' expressions with an implied 'any' type. */
   },
-  "include": ["src", "types", "global.d.ts"],
+  "include": ["src/**/*", "types", "global.d.ts"],
   "files": ["global.d.ts"]
 }
