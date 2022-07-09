@@ -4,18 +4,18 @@ import Image from "../image"
 import useLocales from "../../hooks/useLocales"
 import styled from "styled-components"
 
-const PlayButton: React.FC<{}> = ({}) => {
+const SingleMintButton: React.FC<{}> = ({ ...props }) => {
   const { locale } = useLocales()
   return (
-    <ButtonContainer className="bg-white p-2 w-max flex justify-between items-center space-x-4 mx-auto md:mx-0 px-5">
+    <ButtonContainer {...props}>
       <TextBox>
-        <h4 className="text-[32px] font-semibold text-black">{locale?.play}</h4>
+        <h4 className="text-[32px] font-semibold text-black">{locale?.mint}</h4>
       </TextBox>
     </ButtonContainer>
   )
 }
 
-export default PlayButton
+export default SingleMintButton
 
 const ButtonContainer = styled.button`
   border: solid 3px transparent;

@@ -57,6 +57,63 @@ export default function useLocales(): { locales: Locale[]; locale?: Locale } {
               close
               zoomIn
               zoomOut
+              mint
+              play
+              notLoggedIn
+              continueAsGuest
+              download
+              mintAvatar
+              item
+              total
+              near
+              congratulation
+              youritem
+              successMinted
+              share
+              sorry
+              sorryDesc
+              goBack
+              playAmberGame
+              getFullownership
+              receivingRareNFT
+              year
+              months
+              month
+              obtainStatus
+              becomeMember
+              recentlyMintedDesc
+              rarity
+              getNFTUnique
+              getNFTDesc
+              participateGame
+              gameDesc
+              trade
+              tradeDesc
+              tradeSmallDesc
+              rule1
+              rule2
+              rule3
+              rule4
+              rule5
+              rule6
+              rule7
+              rule8
+              instruct1
+              instruct2
+              instruct3
+              instruct4
+              instruct5
+              instruct6
+              instruct7
+              instruct8
+              instruct9
+              instruct10
+              instruct11
+              partners
+              joinUs
+              copywrite
+              about
+              vote
             }
           }
         }

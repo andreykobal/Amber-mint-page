@@ -24,5 +24,7 @@
   "userIcon": "user-icon.svg",
   "manNft": "nft-man.png",
   "bgBlueCurve": "bg-blue-curve.svg",
-  "bgGradientCurve": "bg-gradient-curve.svg"
+  "bgGradientCurve": "bg-gradient-curve.svg",
+  "cycle": "cycle.svg",
+  "femaleNft": "nft-female.svg"
 }

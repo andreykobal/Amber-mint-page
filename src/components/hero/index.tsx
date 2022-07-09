@@ -7,6 +7,8 @@ import useHeroStatuses from "../../hooks/useHeroStatuses"
 import bgBlueCurve from "../../../config/images/bg-blue-curve.svg"
 import bgGradientCurve from "../../../config/images/bg-gradient-curve.svg"
 import MintButton from "../pieces/MintButton"
+import PlayButton from "../pieces/PlayButton"
+import SingleMintButton from "../pieces/SingleMintButton"
 
 const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
   const { locale } = useLocales()
@@ -39,21 +41,33 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
               <h1 className="text-[54px] leading-tight font-semibold text-white scale-y-105">
                 {locale?.title}
               </h1>
-              <p className="text-2xl text-white leading-tight">
+              <p className="text-[22px] text-white leading-tight tracking-wide ">
                 {locale?.description}
               </p>
-              <MintButton />
+              <div className="flex flex-row">
+                <MintButton />
+                <PlayButton />
+              </div>
             </div>
-            <Image
-              src={settings.manNft}
-              alt="nft-demo"
-              className="h-[80vh] hidden md:block mt-20"
-            />
+            <div className="relative">
+              <Image
+                src={settings.femaleNft}
+                alt="nft-demo"
+                className="h-[80vh] hidden md:block mt-20"
+              />
+              <Image
+                src={settings.cycle}
+                alt="Cycle-Image"
+                className="h-[22px] w-[35.8px] absolute bottom-12 right-24"
+              />
+              <SingleMintButton className="bg-white p-2 w-max flex justify-between items-center space-x-4 mx-auto md:mx-0 px-5 absolute bottom-10 -right-10" />
+            </div>
+            <div className="flex flex-row flex-wrap"></div>
           </div>
         </div>
       </div>
 
-      <div className="w-[40%] md:w-[55%] mx-auto xl:w-[60%]">
+      <div className="w-[40%] md:w-[55%] mx-auto xl:w-[60%] bg-transparent">
         <div className="pt-12 flex justify-between text-center lg:text-start">
           <div className="w-[100%] lg:w-[50%] space-y-4">
             <h1 className="text-3xl font-bold">{locale?.recentlyMinted}</h1>
