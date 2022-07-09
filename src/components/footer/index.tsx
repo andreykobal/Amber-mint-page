@@ -1,5 +1,5 @@
 import React from "react"
-import Image from "../image"
+import Image from "../Image"
 import LangPicker from "../lang-picker"
 import useLocales from "../../hooks/useLocales"
 import settings from "../../../config/settings.json"
@@ -9,7 +9,7 @@ export default function Footer() {
   if (!locale) return null
   return (
     <footer
-      className={` container mx-auto flex justify-between direc flex-row-reverse`}
+      className={` container mx-auto flex justify-between direc flex-row-reverse absolute bottom-1`}
     >
       <LangPicker />
       <div>

@@ -1,6 +1,6 @@
 import React from "react"
 import settings from "../../../config/settings.json"
-import Image from "../image"
+import Image from "../Image"
 import useLocales from "../../hooks/useLocales"
 import styled from "styled-components"
 

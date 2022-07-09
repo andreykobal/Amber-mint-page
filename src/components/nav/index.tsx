@@ -3,8 +3,10 @@ import settings from "../../../config/settings.json"
 import { signIn, wallet } from "../../near"
 import LoginButton from "../pieces/LoginButton"
 import useLocales from "../../hooks/useLocales"
-import Image from "../image"
+import Image from "../Image"
 import { Ul, Li } from "../pieces/List"
+import styled from "styled-components"
+
 function signOut() {
   wallet.signOut()
   window.location.replace(window.location.origin + window.location.pathname)
@@ -16,13 +18,12 @@ export default function Navbar() {
   if (!locale) return null
 
   return (
-    <nav
-      className="navbar py-8 px-10 pt-16 text-white absolute z-10"
-      style={{
-        background:
-          "linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(217,217,217,0) 60%)",
-      }}
-    >
+    <Nav className="navbar py-8 px-10 pt-16 text-white absolute z-10">
+      <div className="left-[20px] sm:left-[5rem] flex-1 top-7 ml-[1rem] sm:ml-[3rem] lg:ml-[5.5rem] mt">
+        <a className="w-[154px]" href="#">
+          <Image src={settings.logo} alt="logo" />
+        </a>
+      </div>
       <div className="lg:hidden flex-none">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -43,7 +44,7 @@ export default function Navbar() {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu dropdown-content absolute right-5 mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
               <a href="#" className="text-black text-xs gap-[0.4rem]">
@@ -78,11 +79,6 @@ export default function Navbar() {
           </ul>
         </div>
       </div>
-      <div className="flex-1 top-7 ml-[1rem] sm:ml-[3rem] lg:ml-[5.5rem] mt">
-        <a className="w-[154px]" href="#">
-          <Image src={settings.logo} alt="logo" />
-        </a>
-      </div>
       <div className="hidden lg:block top-7 flex-none">
         <Ul className="flex p-0">
           <Li>
@@ -108,6 +104,18 @@ export default function Navbar() {
           </Li>
         </Ul>
       </div>
-    </nav>
+    </Nav>
   )
 }
+
+const Nav = styled.nav`
+  background: #ffffff5c;
+  height: 1rem;
+  @media (min-width: 1024px) {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(217, 217, 217, 0) 60%
+    );
+  }
+`

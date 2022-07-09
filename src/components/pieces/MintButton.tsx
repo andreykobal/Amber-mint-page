@@ -1,6 +1,6 @@
 import React from "react"
 import settings from "../../../config/settings.json"
-import Image from "../image"
+import Image from "../Image"
 import useLocales from "../../hooks/useLocales"
 import styled from "styled-components"
 
@@ -16,10 +16,16 @@ const MintButton: React.FC<{}> = ({ ...props }) => {
         </div>
       </IconBox>
       <TextBox>
-        <h4 className="text-sm font-semibold text-black">
+        <h4 className="text-sm font-semibold text-black sm:block hidden">
           {locale?.mint3DNFT}
         </h4>
-        <p className="text-sm text-gray-600">{locale?.billedOnce}</p>
+        <h4 className="text-sm font-semibold text-black block sm:hidden uppercase">
+          {locale?.mintAvatar}
+        </h4>
+
+        <p className="text-sm text-gray-600 hidden sm:block">
+          {locale?.billedOnce}
+        </p>
       </TextBox>
     </ButtonContainer>
   )

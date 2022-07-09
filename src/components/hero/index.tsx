@@ -1,6 +1,6 @@
 import React from "react"
 import settings from "../../../config/settings.json"
-import Image from "../image"
+import Image from "../Image"
 import { ExpandedHeroTree } from "../../../lib/locales"
 import useLocales from "../../hooks/useLocales"
 import useHeroStatuses from "../../hooks/useHeroStatuses"
@@ -19,7 +19,7 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
       <div
         style={{
           backgroundImage: `url(${bgGradientCurve})`,
-          backgroundSize: "cover",
+          backgroundSize: "auto 40vh",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "right",
         }}
@@ -27,48 +27,94 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
         <div
           style={{
             backgroundImage: `url(${bgBlueCurve})`,
-            backgroundSize: "cover",
+            // backgroundSize: "120vw 120vh",
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div
-            className="px-[8rem] sm:px-[8rem] flex justify-center items-center mx-auto pt-[6.6rem] backdrop-blur-[90px] min-h-[100vh] text-center sm:text-start"
-            style={{
-              backgroundColor: "rgba(217, 217, 217, 0.01)",
-            }}
-          >
-            <div className="space-y-8 lg:w-[60%] xl:w-[76%] mt-20">
-              <h1 className="text-[54px] leading-tight font-semibold text-white scale-y-105">
+          <div className="backdrop-blur-[90px] pb-20">
+            <div
+              className="px-[1rem] sm:px-[8rem] flex flex-col lg:flex-row justify-center items-center mx-auto pt-[6.6rem] min-h-[100vh] text-center sm:text-start"
+              style={{
+                backgroundColor: "rgba(217, 217, 217, 0.01)",
+              }}
+            >
+              <h1 className="lg:text-[54px] sm:text-[40px] text-[30px] leading-tight font-semibold text-white scale-y-105 lg:hidden text-center mt-[84px]">
                 {locale?.title}
               </h1>
-              <p className="text-[22px] text-white leading-tight tracking-wide ">
-                {locale?.description}
-              </p>
-              <div className="flex flex-row">
+              <div className="space-y-8 lg:w-[60%] xl:w-[76%] mt-20 lg:block hidden">
+                <h1 className="lg:text-[54px] text-[40px] leading-tight font-semibold text-white scale-y-105">
+                  {locale?.title}
+                </h1>
+                <p className="text-[22px] text-white leading-tight tracking-wide">
+                  {locale?.description}
+                </p>
+                <div className="flex">
+                  <MintButton />
+                  <PlayButton />
+                </div>
+              </div>
+              <div className="relative">
+                <Image
+                  src={settings.femaleNft}
+                  alt="nft-demo"
+                  className="sm:h-[80vh] h-[70vh] sm:mt-20 mt-0"
+                />
+                <Image
+                  src={settings.cycle}
+                  alt="Cycle-Image"
+                  className="h-[22px] w-[35.8px] absolute bottom-6 sm:bottom-4 left-20 sm:right-24"
+                />
+                <SingleMintButton className="bg-white p-2 w-max flex justify-between items-center space-x-4 mx-auto md:mx-0 px-5 absolute bottom-3 sm:-right-10 -right-2  " />
+              </div>
+              <div className="flex lg:hidden ">
                 <MintButton />
                 <PlayButton />
               </div>
             </div>
-            <div className="relative">
-              <Image
-                src={settings.femaleNft}
-                alt="nft-demo"
-                className="h-[80vh] hidden md:block mt-20"
-              />
-              <Image
-                src={settings.cycle}
-                alt="Cycle-Image"
-                className="h-[22px] w-[35.8px] absolute bottom-12 right-24"
-              />
-              <SingleMintButton className="bg-white p-2 w-max flex justify-between items-center space-x-4 mx-auto md:mx-0 px-5 absolute bottom-10 -right-10" />
+            <div className="sm:flex flex-row flex-wrap justify-center mt-20 hidden">
+              <div className="text-center mx-10">
+                <Image src={settings.icon1} alt="Icon1" />
+                <p className="w-32 tracking-wider text-[#05A3FF] my-8">
+                  {locale?.playAmberGame}
+                </p>
+              </div>
+              <div className="text-center mx-10">
+                <Image src={settings.icon2} alt="Icon1" />
+                <p className="w-[9rem] tracking-wider text-[#05A3FF] my-8">
+                  {locale?.getFullownership}
+                </p>
+              </div>
+              <div className="text-center mx-10">
+                <Image src={settings.icon3} alt="Icon1" />
+                <p className="w-[13rem] tracking-wider text-[#05A3FF] my-8">
+                  {locale?.receivingRareNFT}
+                  <br />
+                  {"· 300N - 1 NFT ( 1 " + locale?.year + ");"}
+                  <br />
+                  {"· 30N - 8 NFT ( 6 " + locale?.months + ");"}
+                  <br />
+                  {"· 5N - 80 tokens ( 1 " + locale?.month + "to NFT."}
+                </p>
+              </div>
+              <div className="text-center mx-10">
+                <Image src={settings.icon4} alt="Icon1" />
+                <p className="w-[10rem] tracking-wider text-[#05A3FF] my-8">
+                  {locale?.obtainStatus}
+                </p>
+              </div>
+              <div className="text-center mx-10">
+                <Image src={settings.icon5} alt="Icon1" />
+                <p className="w-[12rem] tracking-wider text-[#05A3FF] my-8">
+                  {locale?.becomeMember + " ( 1NFT = 1" + locale?.vote + ")"}
+                </p>
+              </div>
             </div>
-            <div className="flex flex-row flex-wrap"></div>
           </div>
         </div>
       </div>
 
-      <div className="w-[40%] md:w-[55%] mx-auto xl:w-[60%] bg-transparent">
-        <div className="pt-12 flex justify-between text-center lg:text-start">
+      <div className="w-[40%] md:w-[55%] mx-auto xl:w-[80%] bg-transparent">
+        <div className="pt-12 flex justify-between text-center lg:text-start px-16">
           <div className="w-[100%] lg:w-[50%] space-y-4">
             <h1 className="text-3xl font-bold">{locale?.recentlyMinted}</h1>
             <div className="flex items-center justify-center lg:justify-start space-x-8">
@@ -119,12 +165,14 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
             </div>
           </div>
           <div className="w-[50%] hidden lg:block">
-            <p className="text-sm font-semibold">{locale.mintDescription}</p>
+            <p className="text-sm font-semibold text-[#05A3FF]">
+              {locale.mintDescription}
+            </p>
           </div>
         </div>
 
         <div className="mt-12 pb-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center gap-2">
-          <div className="rounded-3xl bg-[#06A4FF] w-[180px] h-[320px] flex justify-center items-center relative">
+          <div className="rounded-3xl bg-[#06A4FF] w-[174px] sm:w-[240px] h-[249px] sm:h-[341px] flex justify-center items-center relative">
             <Image
               src={settings.manNft}
               alt="nft-card"
@@ -157,7 +205,7 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
               </button>
             </div>
           </div>
-          <div className="rounded-3xl bg-accent w-[180px] h-[320px] flex justify-center items-center relative">
+          <div className="rounded-3xl bg-accent sm:w-[240px] h-[249px] sm:h-[341px]  flex justify-center items-center relative">
             <Image
               src={settings.manNft}
               alt="nft-card"
@@ -191,7 +239,7 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
             </div>
           </div>
           <div
-            className="rounded-3xl w-[180px] h-[320px] flex justify-center items-center relative"
+            className="rounded-3xl sm:w-[240px] h-[249px] sm:h-[341px] flex justify-center items-center relative"
             style={{
               background:
                 "linear-gradient(224deg, rgb(110, 204, 255) 0%, rgb(255, 211, 202) 70%, rgba(255, 188, 221, 0) 100%)",
@@ -229,7 +277,7 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
               </button>
             </div>
           </div>
-          <div className="rounded-3xl bg-[#06A4FF] w-[180px] h-[320px] flex justify-center items-center relative">
+          <div className="rounded-3xl bg-[#06A4FF] sm:w-[240px] h-[249px] sm:h-[341px] flex justify-center items-center relative">
             <Image
               src={settings.manNft}
               alt="nft-card"

@@ -26,5 +26,10 @@
   "bgBlueCurve": "bg-blue-curve.svg",
   "bgGradientCurve": "bg-gradient-curve.svg",
   "cycle": "cycle.svg",
-  "femaleNft": "nft-female.svg"
+  "femaleNft": "nft-female.png",
+  "icon1": "icon1.png",
+  "icon2": "icon2.png",
+  "icon3": "icon3.png",
+  "icon4": "icon4.png",
+  "icon5": "icon5.png"
 }
