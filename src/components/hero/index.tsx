@@ -20,7 +20,7 @@ import Checkbox from "../pieces/Checkbox"
 import Slider from "../pieces/Slider"
 import { SocialIcon } from "react-social-icons"
 import { useState } from "react"
-
+import { FaDiscord } from "react-icons/fa"
 const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
   const { locale } = useLocales()
   const { saleStatus, userStatus } = useHeroStatuses()
@@ -200,39 +200,76 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
             <Slider />
           </div>
 
-          <div className="flex w-[80%] mx-auto justify-around items-start mt-40">
-            <Image src={settings.appleiPhoneNFT} alt="Apple iPhone NFT" />
-            <div className="bg-white rounded-[30px] shadow-lg w-[50%] p-8">
-              <h1 className="text-[50px] font-bold ">{locale?.mint}</h1>
-              <GradientText>{locale?.getNFTUnique}</GradientText>
-              <p className="text-[#444]">{locale?.getNFTDesc}</p>
+          <div className="flex w-[90%] sm:w-[80%] mx-auto justify-around items-start mt-40">
+            <Image
+              src={settings.appleiPhoneNFT}
+              alt="Apple iPhone NFT"
+              className="sm:w-[236px] w-[166px]"
+            />
+            <div className="bg-white rounded-[30px] shadow-lg sm:w-[50%] w-[80%] sm:p-8 p-4 -translate-x-6 sm:translate-x-5">
+              <h1 className="text-[30px] sm:text-[50px] font-bold ">
+                {locale?.mint}
+              </h1>
+              <GradientText className="text-[20px] sm:text-[30px] sm:mb-5 mb-2 sm:leading-normal leading-tight">
+                {locale?.getNFTUnique}
+              </GradientText>
+              <p className="text-[#444] sm:text-[20px] text-[16px]">
+                {locale?.getNFTDesc}
+              </p>
             </div>
           </div>
 
-          <div className="flex w-[80%] mx-auto justify-around items-start mt-40">
-            <div className="bg-white rounded-[30px] shadow-lg w-[45%] p-8">
-              <h1 className="text-[50px] font-bold ">{locale?.play}</h1>
-              <GradientText1>{locale?.participateGame}</GradientText1>
-              <p className="text-[#444]">{locale?.gameDesc}</p>
+          <div className="flex sm:flex-row flex-col w-[80%] mx-auto justify-around items-start mt-40">
+            <Image
+              src={settings.phoneGame1}
+              alt="Apple iPhone NFT"
+              className="block sm:hidden"
+            />
+
+            <div className="bg-white rounded-[30px] shadow-lg sm:w-[45%] w-[100%] -translate-y-6 sm:translate-y-0 mx-auto p-8">
+              <h1 className="sm:text-[50px] text-[30px] font-bold ">
+                {locale?.play}
+              </h1>
+              <GradientText1 className="text-[20px] sm:text-[30px] sm:leading-normal leading-tight sm:mb-10 my-2">
+                {locale?.participateGame}
+              </GradientText1>
+              <p className="text-[#444] sm:text-[20px] text-[16px]">
+                {locale?.gameDesc}
+              </p>
             </div>
-            <div className="w-[45%]">
+            <div className="w-[45%] hidden sm:block">
               <Image src={settings.phoneGame1} alt="Apple iPhone NFT" />
               <Image src={settings.phoneGame2} alt="Apple iPhone NFT" />
             </div>
           </div>
 
-          <div className="flex w-[80%] mx-auto justify-around items-center mt-40">
-            <Image src={settings.fightModels} alt="Apple iPhone NFT" />
-            <div className="bg-white rounded-[30px] shadow-lg w-[45%] p-8">
-              <h1 className="text-[50px] font-bold ">{locale?.trade}</h1>
-              <GradientText3>{locale?.tradeDesc}</GradientText3>
-              <p className="text-[#444]">{locale?.tradeSmallDesc}</p>
+          <div className="flex sm:w-[80%] w-[90%] mx-auto justify-around items-center mt-40">
+            <Image
+              src={settings.femaleNFTFight}
+              alt="Apple iphone NFT Female"
+              className="block sm:hidden w-[40%]"
+            />
+            <Image
+              src={settings.fightModels}
+              alt="Apple iPhone NFT"
+              className="hidden sm:block"
+            />
+            <div className="bg-white rounded-[30px] shadow-lg w-[60%] sm:w-[45%] sm:p-8 p-4">
+              <h1 className="text-[30px] sm:text-[50px] font-bold ">
+                {locale?.trade}
+              </h1>
+              <GradientText3 className="text-[20px] sm:text-[30px] sm:leading-normal leading-tight sm:mb-10 my-2">
+                {locale?.tradeDesc}
+              </GradientText3>
+              <p className="text-[#444] sm:text-[20px] text-[16px]">
+                {locale?.tradeSmallDesc}
+              </p>
             </div>
           </div>
 
           <div className="w-[80%] mx-auto mt-5">
-            <div className="rounded-[30px] shadow-lg bg-white flex">
-              <GradientBackground className="rounded-[30px] w-[30%]">
+            <div className="rounded-[30px] shadow-lg bg-white flex sm:flex-row flex-col">
+              <GradientBackground className="rounded-[30px] w-[100%] sm:w-[30%]">
                 <Image
                   src={settings.manNft}
                   alt="Man-NFT"
@@ -247,10 +284,10 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
                 </div>
               </GradientBackground>
               <div className="px-5 py-8">
-                <h1 className="text-[40px] font-bold w-[70%] leading-tight p-2">
+                <h1 className="text-[40px] font-bold w-[70%] leading-tight p-2 hidden sm:block">
                   {locale?.title}
                 </h1>
-                <div className="flex justify-around">
+                <div className="flex justify-around  sm:flex-row flex-col">
                   <div className="grid gap-4 p-2">
                     <label className="flex items-center">
                       <Checkbox
@@ -373,7 +410,13 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
                     bgColor="transparent"
                     fgColor="white"
                   />
-                  <SocialIcon url="https://discord.gg" />
+                  <SocialIcon
+                    url="https://discord.gg"
+                    fgColor="transparent"
+                    bgColor="transparent"
+                  >
+                    <FaDiscord className="w-[30px] m-auto mt-3 h-[30px] text-white" />
+                  </SocialIcon>
                   <SocialIcon
                     url="https://instagram.com"
                     bgColor="transparent"
@@ -414,9 +457,6 @@ const GradientText = styled.h4`
     rgba(5, 163, 255, 1),
     rgba(255, 188, 201, 1)
   );
-  font-size: 30px;
-  line-height: 2rem;
-  margin-bottom: 2rem;
   font-weight: 700;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -427,7 +467,6 @@ const GradientText1 = styled.h4`
     rgba(255, 212, 203, 1),
     rgba(255, 188, 221, 1)
   );
-  font-size: 30px;
   line-height: 2rem;
   margin-bottom: 2rem;
   font-weight: 700;
@@ -441,9 +480,6 @@ const GradientText3 = styled.h4`
     rgba(42, 180, 255, 1),
     rgba(111, 204, 255, 1)
   );
-  font-size: 30px;
-  line-height: 2rem;
-  margin-bottom: 2rem;
   font-weight: 700;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
