@@ -7,13 +7,18 @@ import useLocales from "../../hooks/useLocales"
 import useHeroStatuses from "../../hooks/useHeroStatuses"
 import bgBlueCurve from "../../../config/images/bg-blue-curve.svg"
 import bgGradientCurve from "../../../config/images/bg-gradient-curve.svg"
+import bgGradientCurve2 from "../../../config/images/bg-gradient-curve-2.svg"
 import bgBlueCurve2 from "../../../config/images/bg-blue-curve-2.svg"
 import partnerBGCurve from "../../../config/images/partner-bg-red.svg"
+import bgRedCurve from "../../../config/images/bg-red-curve.svg"
+import bgRedEnd from "../../../config/images/bg-red-end.svg"
+import bgBlueEndLeft from "../../../config/images/bg-blue-end-left.svg"
 import MintButton from "../pieces/MintButton"
 import PlayButton from "../pieces/PlayButton"
 import SingleMintButton from "../pieces/SingleMintButton"
 import Checkbox from "../pieces/Checkbox"
 import Slider from "../pieces/Slider"
+import { SocialIcon } from "react-social-icons"
 import { useState } from "react"
 
 const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
@@ -24,7 +29,7 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
     setChecked(eve.target.checked)
   }
   return (
-    <div className="bg-slate-100 pb-40">
+    <div className="bg-slate-100">
       <div
         style={{
           backgroundImage: `url(${bgGradientCurve})`,
@@ -123,13 +128,18 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
       </div>
       <section
         style={{
-          backgroundImage: `url(${bgBlueCurve2})`,
-          backgroundSize: "auto 40vh",
+          backgroundImage: `url(${bgBlueCurve2}), url(${bgGradientCurve2}), url(${bgRedCurve}), url(${bgRedEnd}), url(${bgBlueEndLeft})`,
+          backgroundSize:
+            "auto 100vh, auto 350px, auto 100vh, contain, auto 300px",
           backgroundRepeat: "no-repeat",
-          backgroundPosition: "right",
+          backgroundOrigin:
+            "border-box, border-box, border-box, border-box, border-box",
+          backgroundClip: "border-box",
+          backgroundPosition:
+            "right 100px, left 200px, 20vw 20%, center bottom, left bottom",
         }}
       >
-        <div className="backdrop-blur-[90px]">
+        <div className="backdrop-blur-[80px]">
           <div className="mx-auto w-full sm:w-[80%] bg-transparent">
             <div className="pt-12 flex justify-between text-center lg:text-start px-16">
               <div className="w-[100%] lg:w-[50%] space-y-4">
@@ -353,11 +363,23 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
             />
           </PartnersGradBack>
 
-          <div className="text-center mt-32">
+          <div className="text-center mt-32 pb-4">
             <div className="flex justify-center">
               <div className="mx-10">
-                <h4 className="text-[#05A3FF]">{locale?.joinUs}</h4>
-                <div></div>
+                <h4 className="text-[#05A3FF] mb-5">{locale?.joinUs}</h4>
+                <div>
+                  <SocialIcon
+                    url="https://twitter.com"
+                    bgColor="transparent"
+                    fgColor="white"
+                  />
+                  <SocialIcon url="https://discord.gg" />
+                  <SocialIcon
+                    url="https://instagram.com"
+                    bgColor="transparent"
+                    fgColor="white"
+                  />
+                </div>
               </div>
               <div className="w-[154px] mx-10">
                 <Image
@@ -367,7 +389,11 @@ const Hero: React.FC<{ heroTree: ExpandedHeroTree }> = ({ heroTree }) => {
                 />
               </div>
               <div className="mx-10">
-                <h4 className="text-[#05A3FF]">{locale?.about}</h4>
+                <h4 className="text-[#05A3FF] mb-3">{locale?.about}</h4>
+                <div>
+                  <h4 className="text-white">{locale?.whitepaper}</h4>
+                  <h4 className="text-white">{locale?.tokenomics}</h4>
+                </div>
               </div>
             </div>
             <div className="mt-20">
@@ -437,4 +463,5 @@ const GradientBackground = styled.div`
 
 const PartnersGradBack = styled.div`
   background-image: ${partnerBGCurve};
+  background-size: contain;
 `
