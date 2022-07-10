@@ -3,6 +3,7 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import "react-image-lightbox/style.css"
+import NFTCard from "./NFTCard"
 
 interface Props {
   images: []
@@ -14,32 +15,43 @@ const SimpleSlider = (props: Props) => {
     isOpen: false,
     images: [],
   })
-  console.log("?????????????????", props.images)
   useEffect(() => {
-    setInitialState({ ...initialState, images: props.images })
+    setInitialState({ ...initialState, images: [1, 2, 3, 4, 5] })
   }, [])
 
   var settings = {
-    infinite: initialState.images.length > 3,
-    slidesToShow: 3,
-    slidesToScroll: 1,
+    infinite: initialState.images.length > 4,
+    slidesToShow: 4,
     autoplay: true,
     swipeToSlide: true,
+    centerMode: false,
     speed: 2000,
     autoplaySpeed: 1000,
-    arrows: true,
-    className: "rounded-md overflow-x-hidden shadow-xl",
+    centerPadding: 30,
+    className: "center rounded-md overflow-x-hidden",
+    pauseOnHover: true,
     responsive: [
       {
-        breakpoint: 600,
+        breakpoint: 1280,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
+          centerMode: true,
+          infinite: initialState.images.length > 3,
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 640,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2.5,
+          initialSlide: 2.5,
+          centerMode: true,
+        },
+      },
+      {
+        breakpoint: 390,
+        settings: {
+          slidesToShow: 1.5,
+          centerMode: true,
         },
       },
     ],
@@ -48,15 +60,11 @@ const SimpleSlider = (props: Props) => {
   return (
     <>
       {initialState.images.length !== 0 && (
-        <div className="mt-10" data-aos="fade-up" style={{ width: "100%" }}>
-          <div className="mt-5 md:mt-0 relative">
+        <div className="mt-10" data-aos="fade-up">
+          <div className="mt-5 relative">
             <Slider {...settings}>
               {initialState.images.map((element, i) => (
-                <MNFTCard
-                  data={element}
-                  key={"NFTCard" + i}
-                  history={props.history}
-                ></MNFTCard>
+                <NFTCard key={"slider" + i} />
               ))}
             </Slider>
           </div>
