@@ -1,5 +1,5 @@
 import React from "react"
-import Image from "../image"
+import Image from "../Image"
 import LangPicker from "../lang-picker"
 import useLocales from "../../hooks/useLocales"
 import settings from "../../../config/settings.json"
